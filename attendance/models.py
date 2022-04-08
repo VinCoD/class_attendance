@@ -32,6 +32,9 @@ class Attendance(models.Model):
     lecturer = models.ForeignKey(Lecturer, on_delete=models.CASCADE)
     unit = models.ForeignKey(Unit, on_delete=models.CASCADE)
     student = models.ManyToManyField(Student)
+    
+    def __str__(self):
+        return f"Attendance for: {self.time_of_lecture}"
 
 
 
