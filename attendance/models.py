@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-
+class Student(models.Model)
 class Unit(models.Model):
     unit_code = models.CharField(max_length=50, primary_key=True)
     unit_name = models.CharField(max_length=150)
@@ -16,4 +16,13 @@ class Lecturer(models.Model):
 
     def __str__(slef):
         return self.first_name + " " + self.last_name
+
+class Attendance(models.Model):
+    venue = models.CharField(max_length=100)
+    time_of_lecture = models.DateTimeField(auto_now=False)
+    lecturer = models.ForeignKey(Lecturer, on_delete=models.CASCADE)
+    unit = models.ForeignKey(Unit, on_delete=models.CASCADE)
+    student = models.ManyToManyField(Student)
+
+
 
