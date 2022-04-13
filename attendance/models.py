@@ -3,6 +3,7 @@ from django.db import models
 # Create your models here.
 
 class Student(models.Model):
+    """Students Records"""
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     registeration_number = models.CharField(max_length=100, primary_key=True)
@@ -11,6 +12,7 @@ class Student(models.Model):
         return f"{self.first_name} {self.last_name} - {self.registeration_number}"
 
 class Unit(models.Model):
+    """Units Details"""
     unit_code = models.CharField(max_length=50, primary_key=True)
     unit_name = models.CharField(max_length=150)
 
@@ -19,6 +21,7 @@ class Unit(models.Model):
 
 
 class Lecturer(models.Model):
+    """Lecturer's Details"""
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
 
@@ -27,6 +30,7 @@ class Lecturer(models.Model):
 
 
 class Attendance(models.Model):
+    """Attendance Details"""
     venue = models.CharField(max_length=100)
     time_of_lecture = models.DateTimeField(auto_now=False)
     lecturer = models.ForeignKey(Lecturer, on_delete=models.CASCADE)
