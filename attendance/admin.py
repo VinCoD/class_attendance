@@ -7,3 +7,5 @@ admin.site.register(Student)
 admin.site.register(Unit)
 admin.site.register(Lecturer)
 admin.site.register(Attendance)
+
+admin.site.site_header = "Attendance Administration"

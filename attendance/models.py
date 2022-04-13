@@ -8,7 +8,7 @@ class Student(models.Model):
     registeration_number = models.CharField(max_length=100, primary_key=True)
 
     def __str__(self):
-        return self.registeration_number
+        return f"{self.first_name} {self.last_name} - {self.registeration_number}"
 
 class Unit(models.Model):
     unit_code = models.CharField(max_length=50, primary_key=True)
